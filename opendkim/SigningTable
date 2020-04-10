@@ -1,0 +1,4 @@
+*@attestation.app default._domainkey.attestation.app
+*@grapheneos.org default._domainkey.grapheneos.org
+*@mail.grapheneos.org default._domainkey.grapheneos.org
+*@seamlessupdate.app default._domainkey.seamlessupdate.app

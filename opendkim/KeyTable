@@ -1,0 +1,4 @@
+default._domainkey.attestation.app attestation.app:default:/etc/dkimkeys/private.key
+default._domainkey.grapheneos.org grapheneos.org:default:/etc/dkimkeys/private.key
+default._domainkey.grapheneos.org mail.grapheneos.org:default:/etc/dkimkeys/private.key
+default._domainkey.seamlessupdate.app seamlessupdate.app:default:/etc/dkimkeys/private.key
