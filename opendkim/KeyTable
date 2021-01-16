@@ -3,6 +3,7 @@ default._domainkey.grapheneos.org grapheneos.org:default:/etc/dkimkeys/private.k
 default._domainkey.mail.grapheneos.org mail.grapheneos.org:default:/etc/dkimkeys/private.key
 default._domainkey.grapheneos.app grapheneos.app:default:/etc/dkimkeys/private.key
 default._domainkey.grapheneos.com grapheneos.com:default:/etc/dkimkeys/private.key
+default._domainkey.grapheneos.info grapheneos.info:default:/etc/dkimkeys/private.key
 default._domainkey.grapheneos.page grapheneos.page:default:/etc/dkimkeys/private.key
 default._domainkey.grapheneos.network grapheneos.network:default:/etc/dkimkeys/private.key
 default._domainkey.seamlessupdate.app seamlessupdate.app:default:/etc/dkimkeys/private.key
