@@ -1,12 +1,5 @@
 *@attestation.app default._domainkey.attestation.app
 *@grapheneos.org default._domainkey.grapheneos.org
 *@mail.grapheneos.org default._domainkey.mail.grapheneos.org
-*@grapheneos.app default._domainkey.grapheneos.app
-*@grapheneos.com default._domainkey.grapheneos.com
-*@grapheneos.info default._domainkey.grapheneos.info
-*@grapheneos.online default._domainkey.grapheneos.online
-*@grapheneos.ovh default._domainkey.grapheneos.ovh
-*@grapheneos.page default._domainkey.grapheneos.page
-*@grapheneos.network default._domainkey.grapheneos.network
 *@seamlessupdate.app default._domainkey.seamlessupdate.app
 *@vanadium.app default._domainkey.vanadium.app
