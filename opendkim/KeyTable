@@ -1,5 +1,6 @@
 default._domainkey.attestation.app attestation.app:default:/etc/opendkim/private.key
 default._domainkey.grapheneos.org grapheneos.org:default:/etc/opendkim/private.key
+default._domainkey.discuss.grapheneos.org discuss.grapheneos.org:default:/etc/opendkim/private.key
 default._domainkey.mail.grapheneos.org mail.grapheneos.org:default:/etc/opendkim/private.key
 default._domainkey.seamlessupdate.app seamlessupdate.app:default:/etc/opendkim/private.key
 default._domainkey.vanadium.app vanadium.app:default:/etc/opendkim/private.key
