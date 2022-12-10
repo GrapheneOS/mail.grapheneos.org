@@ -1,4 +1,8 @@
 opendkim/private.key
 postfix/header_checks
+postfix/aliases
+postfix/aliases.db
 postfix/sender_access
+postfix/sender_access.db
 postfix/sender_login_maps
+postfix/sender_login_maps.db
