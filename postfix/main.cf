@@ -185,7 +185,7 @@ myhostname = mail.grapheneos.org
 #mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain
 #mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain,
 #	mail.$mydomain, www.$mydomain, ftp.$mydomain
-mydestination = $myhostname attestation.app grapheneos.app grapheneos.ca grapheneos.com grapheneos.dev grapheneos.info grapheneos.net grapheneos.network grapheneos.online discuss.grapheneos.org grapheneos.org grapheneos.ovh grapheneos.page grapheneos.social seamlessupdate.app vanadium.app
+mydestination = $myhostname attestation.app grapheneos.app grapheneos.ca grapheneos.com grapheneos.dev grapheneos.info grapheneos.net grapheneos.network grapheneos.online discuss.grapheneos.org matrix.grapheneos.org grapheneos.org grapheneos.ovh grapheneos.page grapheneos.social seamlessupdate.app vanadium.app
 
 # REJECTING MAIL FOR UNKNOWN LOCAL USERS
 #
