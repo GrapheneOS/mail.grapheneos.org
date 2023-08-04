@@ -1,0 +1,16 @@
+name: Lint nginx configuration
+
+on: [pull_request, push]
+
+jobs:
+  static:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        cache: pip
+    - run: 'pip install --require-hashes --only-binary :all: -r requirements.txt'
+    - run: gixy nginx/nginx.conf
