@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -o errexit -o nounset -o pipefail
+
+source venv/bin/activate
+
+touch lock
+exec {fd}< lock
+if ! flock -n $fd; then
+    echo already deploying >&2
+    exit 1
+fi
+
+gixy nginx/nginx.conf
+
+remote=root@mail.grapheneos.org
+
+rsync -rptcv --chmod=D755,F644 --delete --fsync --preallocate nginx/{nginx.conf,mime.types} $remote:/etc/nginx/
+ssh $remote nginx -s reload
+
+echo
