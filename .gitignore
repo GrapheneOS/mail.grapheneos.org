@@ -6,3 +6,4 @@
 /postfix/sender_access.db
 /postfix/sender_login_maps
 /postfix/sender_login_maps.db
+/venv/
