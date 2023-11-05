@@ -1,3 +1,4 @@
+/lock
 /opendkim/private.key
 /postfix/aliases
 /postfix/aliases.db
