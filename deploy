@@ -17,5 +17,3 @@ remote=root@mail.grapheneos.org
 
 rsync -rptcv --chmod=D755,F644 --delete --fsync --preallocate nginx/{nginx.conf,mime.types} $remote:/etc/nginx/
 ssh $remote nginx -s reload
-
-echo
