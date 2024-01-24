@@ -1,3 +1,7 @@
+/backup-key.txt
+/backup-public-key.txt
+/backup/
+/cloud-archive-password.txt
 /lock
 /opendkim/private.key
 /postfix/aliases
