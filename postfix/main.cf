@@ -742,8 +742,9 @@ tls_preempt_cipherlist = yes
 smtp_tls_session_cache_timeout = 86400s
 smtpd_tls_session_cache_timeout = 86400s
 
-smtpd_tls_cert_file = /etc/letsencrypt/live/mail.grapheneos.org/fullchain.pem
-smtpd_tls_key_file = /etc/letsencrypt/live/mail.grapheneos.org/privkey.pem
+smtpd_tls_chain_files =
+    /etc/letsencrypt/live/mail.grapheneos.org/privkey.pem
+    /etc/letsencrypt/live/mail.grapheneos.org/fullchain.pem
 smtpd_tls_auth_only = yes
 
 tls_ssl_options = NO_RENEGOTIATION
