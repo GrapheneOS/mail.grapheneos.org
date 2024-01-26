@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -o errexit -o nounset -o pipefail
+
+remote=root@mail.grapheneos.org
+
+timestamp=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+ssh $remote "rm -rf local-backup"
+ssh $remote "mkdir local-backup"
+
+ssh $remote "mkdir local-backup/$timestamp"
+ssh $remote "cp -a /home/ local-backup/$timestamp/home"
+ssh $remote "tar -cC local-backup $timestamp | zstd -9 | age -r \$(cat backup-public-key.txt) -o local-backup/$timestamp.tar.zst.age"
+rsync -v --fsync --preallocate $remote:./local-backup/$timestamp.tar.zst.age backup/
+
+#ssh $remote "rm -rf local-backup"

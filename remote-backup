@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -o errexit -o nounset -o pipefail
+
+timestamp=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+rm -rf remote-backup
+mkdir remote-backup
+
+mkdir remote-backup/$timestamp
+cp -a /home/ remote-backup/$timestamp/home
+tar -cC remote-backup $timestamp | zstd -9 | age -r $(cat backup-public-key.txt) -o remote-backup/$timestamp.tar.zst.age
+sshpass -f cloud-archive-password.txt rsync -v ./remote-backup/$timestamp.tar.zst.age pca@gateways.storage.gra.cloud.ovh.net:backup/
+
+rm -rf remote-backup

@@ -1,0 +1,8 @@
+[Unit]
+Description=Perform remote backup backups daily
+
+[Timer]
+OnCalendar=daily
+
+[Install]
+WantedBy=timers.target

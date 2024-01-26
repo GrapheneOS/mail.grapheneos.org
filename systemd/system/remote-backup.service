@@ -1,0 +1,36 @@
+[Unit]
+Description=Perform remote backup
+
+[Service]
+CapabilityBoundingSet=CAP_CHOWN CAP_DAC_OVERRIDE CAP_FOWNER
+CPUSchedulingPolicy=batch
+ExecStart=/usr/local/bin/remote-backup
+IOSchedulingPriority=7
+LockPersonality=true
+MemoryDenyWriteExecute=true
+Nice=19
+NoNewPrivileges=true
+PrivateDevices=true
+PrivateIPC=true
+PrivateTmp=true
+ProcSubset=pid
+ProtectClock=true
+ProtectControlGroups=true
+ProtectHostname=true
+ProtectKernelLogs=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+ProtectProc=invisible
+ProtectSystem=strict
+RemoveIPC=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@obsolete
+Type=oneshot
+UMask=0077
+User=root
+WorkingDirectory=/root

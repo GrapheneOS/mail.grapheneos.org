@@ -18,5 +18,9 @@ remote=root@mail.grapheneos.org
 rsync -rptcv --chmod=D755,F644 --fsync --preallocate postfix/main.cf postfix/submission_header_checks $remote:/etc/postfix/
 rsync -rptcv --chmod=D755,F644 --fsync --preallocate systemd/ $remote:/etc/systemd/
 rsync -rptcv --chmod=D755,F644 --fsync --preallocate tmpfiles.d/opendmarc.conf $remote:/etc/tmpfiles.d/
+rsync -ptcv --chmod=755 --fsync --preallocate remote-backup $remote:/usr/local/bin/
+rsync -ptcv --chmod=644 --fsync --preallocate systemd/system/remote-backup.timer $remote:/etc/systemd/system/remote-backup.timer
+rsync -ptcv --chmod=644 --fsync --preallocate systemd/system/remote-backup.service $remote:/etc/systemd/system/remote-backup.service
+rsync -ptcv --chmod=644 --fsync --preallocate backup-public-key.txt cloud-archive-password.txt $remote:
 rsync -rptcv --chmod=D755,F644 --fsync --preallocate nginx/{nginx.conf,mime.types} $remote:/etc/nginx/
 ssh $remote nginx -s reload
