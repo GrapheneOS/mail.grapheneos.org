@@ -699,6 +699,8 @@ mua_client_restrictions = reject_sender_login_mismatch, permit_sasl_authenticate
 mua_sender_restrictions = permit_sasl_authenticated, reject
 mua_helo_restrictions = permit_mynetworks, reject_invalid_hostname, permit
 
+disable_vrfy_command = yes
+
 smtpd_helo_required = yes
 smtpd_helo_restrictions = reject_invalid_hostname, reject_non_fqdn_hostname
 
