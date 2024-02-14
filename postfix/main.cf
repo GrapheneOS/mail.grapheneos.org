@@ -701,6 +701,8 @@ mua_helo_restrictions = permit_mynetworks, reject_invalid_hostname, permit
 
 disable_vrfy_command = yes
 
+strict_rfc821_envelopes = yes
+
 smtpd_helo_required = yes
 smtpd_helo_restrictions = reject_invalid_hostname, reject_non_fqdn_hostname
 
