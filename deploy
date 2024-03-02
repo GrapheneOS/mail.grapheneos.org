@@ -15,8 +15,11 @@ gixy nginx/nginx.conf
 
 remote=root@mail.grapheneos.org
 
+./generate-blocklist
+
 rsync -rptcv --delete --chmod=D755,F644 --fsync --preallocate dovecot opendmarc $remote:/etc/
-rsync -rptcv --chmod=D755,F644 --fsync --preallocate postfix/main.cf postfix/submission_header_checks $remote:/etc/postfix/
+rsync -rptcv --chmod=D755,F644 --fsync --preallocate postfix/main.cf postfix/header_checks postfix/sender_access postfix/submission_header_checks $remote:/etc/postfix/
+ssh $remote postmap /etc/postfix/sender_access
 rsync -rptcv --chmod=D755,F644 --fsync --preallocate systemd/ $remote:/etc/systemd/
 rsync -rptcv --chmod=D755,F644 --fsync --preallocate tmpfiles.d/opendmarc.conf $remote:/etc/tmpfiles.d/
 rsync -ptcv --chmod=755 --fsync --preallocate remote-backup $remote:/usr/local/bin/

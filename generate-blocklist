@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+
+with (open("postfix/sender_access", "w") as sender_access,
+      open("postfix/header_checks", "w") as header_checks,
+      open("blocklist/domains.txt") as domains,
+      open("blocklist/addresses.txt") as addresses):
+    for domain in domains.read().splitlines():
+        print(f"{domain} REJECT", file=sender_access)
+        print(f"/^From:.*<.*@{domain}>.*/ REJECT", file=header_checks)
+
+    print(file=sender_access)
+    print(file=header_checks)
+
+    for address in addresses.read().splitlines():
+        print(f"{address} REJECT", file=sender_access)
+        print(f"/^From:.*<{address}>.*/ REJECT", file=header_checks)
