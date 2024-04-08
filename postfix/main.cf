@@ -31,7 +31,7 @@
 #
 # The level below is what should be used with new (not upgrade) installs.
 #
-compatibility_level = 3.8
+compatibility_level = 3.9
 
 # SOFT BOUNCE
 #
@@ -456,7 +456,7 @@ home_mailbox = Maildir/
 # The mailbox_command parameter specifies the optional external
 # command to use instead of mailbox delivery. The command is run as
 # the recipient with proper HOME, SHELL and LOGNAME environment settings.
-# Exception:  delivery for root is done as $default_user.
+# Exception:  delivery for root is done as $default_privs.
 #
 # Other environment variables of interest: USER (recipient username),
 # EXTENSION (address extension), DOMAIN (domain part of address),
@@ -686,8 +686,8 @@ sample_directory = /etc/postfix
 # readme_directory: The location of the Postfix README files.
 #
 readme_directory = /usr/share/doc/postfix
-meta_directory = /etc/postfix
 shlib_directory = /usr/lib/postfix
+meta_directory = /etc/postfix
 
 biff = no
 
