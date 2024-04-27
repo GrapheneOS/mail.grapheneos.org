@@ -13,4 +13,4 @@ ssh $remote "cp -a /home/ local-backup/$timestamp/home"
 ssh $remote "tar -cC local-backup $timestamp | zstd -9 | age -r \$(cat backup-public-key.txt) -o local-backup/$timestamp.tar.zst.age"
 rsync -v --fsync --preallocate $remote:./local-backup/$timestamp.tar.zst.age backup/
 
-#ssh $remote "rm -rf local-backup"
+ssh $remote "rm -rf local-backup"
