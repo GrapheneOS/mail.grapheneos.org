@@ -27,6 +27,6 @@ rsync -rpcv --chmod=D755,F644 --fsync --preallocate tmpfiles.d/opendmarc.conf $r
 rsync -pcv --chmod=755 --fsync --preallocate remote-backup $remote:/usr/local/bin/
 rsync -pcv --chmod=644 --fsync --preallocate systemd/system/remote-backup.timer $remote:/etc/systemd/system/remote-backup.timer
 rsync -pcv --chmod=644 --fsync --preallocate systemd/system/remote-backup.service $remote:/etc/systemd/system/remote-backup.service
-rsync -pcv --chmod=644 --fsync --preallocate backup-public-key.txt cloud-archive-password.txt $remote:
+rsync -pcv --chmod=644 --fsync --preallocate backup-public-key.txt cloud-archive.sh $remote:
 rsync -rpcv --chmod=D755,F644 --fsync --preallocate nginx/{nginx.conf,mime.types} $remote:/etc/nginx/
 ssh $remote nginx -s reload
