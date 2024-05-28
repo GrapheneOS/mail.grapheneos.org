@@ -3,6 +3,7 @@
 /backup/
 /blocklist/
 /cloud-archive.sh
+/cloud-archive-admin.sh
 /lock
 /opendkim/private.key
 /postfix/aliases
