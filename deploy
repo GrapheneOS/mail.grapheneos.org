@@ -20,7 +20,7 @@ remote=root@mail.grapheneos.org
 rsync -rpcv --delete --chmod=D755,F644 --fsync --preallocate dovecot opendmarc $remote:/etc/
 rsync -rpcv --delete --chown root:opendkim --chmod=D750,F640 --fsync --preallocate opendkim $remote:/etc/
 rsync -pcv --chmod=644 --fsync --preallocate python-policyd-spf/policyd-spf.conf $remote:/etc/python-policyd-spf
-rsync -rpcv --chmod=D755,F644 --fsync --preallocate postfix/aliases postfix/main.cf postfix/header_checks postfix/sender_access postfix/submission_header_checks $remote:/etc/postfix/
+rsync -rpcv --chmod=D755,F644 --fsync --preallocate postfix/aliases postfix/body_checks postfix/main.cf postfix/header_checks postfix/sender_access postfix/submission_header_checks $remote:/etc/postfix/
 ssh $remote "newaliases; postmap /etc/postfix/sender_access"
 rsync -rpcv --chmod=D755,F644 --fsync --preallocate systemd/ $remote:/etc/systemd/
 rsync -rpcv --chmod=D755,F644 --fsync --preallocate tmpfiles.d/opendmarc.conf $remote:/etc/tmpfiles.d/
