@@ -8,14 +8,14 @@ with (open("postfix/sender_access", "w") as sender_access,
       open("blocklist/strings.txt") as strings):
     for domain in domains.read().splitlines():
         print(f"{domain} REJECT", file=sender_access)
-        print(f"/^(From|Reply-To):.*<.*@(.*\\.)?{domain}>.*/ REJECT", file=header_checks)
+        print(f"/^(From|Reply-To|Return-Path):.*<.*@(.*\\.)?{domain}>.*/ REJECT", file=header_checks)
 
     print(file=sender_access)
     print(file=header_checks)
 
     for address in addresses.read().splitlines():
         print(f"{address} REJECT", file=sender_access)
-        print(f"/^(From|Reply-To):.*<{address}>.*/ REJECT", file=header_checks)
+        print(f"/^(From|Reply-To|Return-Path):.*<{address}>.*/ REJECT", file=header_checks)
 
     for string in strings.read().splitlines():
         print(f"/{string}/ REJECT", file=body_checks)
