@@ -708,7 +708,7 @@ smtpd_helo_required = yes
 smtpd_helo_restrictions = reject_invalid_hostname, reject_non_fqdn_hostname
 
 smtpd_relay_restrictions = permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination
-smtpd_recipient_restrictions = check_sender_access lmdb:/etc/postfix/sender_access, check_policy_service unix:private/policyd-spf
+smtpd_recipient_restrictions = check_client_access cidr:/etc/postfix/client_access.cidr, check_sender_access lmdb:/etc/postfix/sender_access, check_policy_service unix:private/policyd-spf
 
 smtpd_reject_unlisted_sender = yes
 smtpd_sender_login_maps = lmdb:/etc/postfix/sender_login_maps
