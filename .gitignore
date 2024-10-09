@@ -7,10 +7,7 @@
 /lock
 /opendkim/private.key
 /postfix/aliases
-/postfix/aliases.lmdb
 /postfix/header_checks
 /postfix/sender_access
-/postfix/sender_access.lmdb
 /postfix/sender_login_maps
-/postfix/sender_login_maps.lmdb
 /venv/
