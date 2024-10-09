@@ -15,6 +15,7 @@ gixy nginx/nginx.conf
 
 remote=root@mail.grapheneos.org
 
+./sort-blocklist
 ./generate-blocklist
 
 rsync -rpcv --delete --chmod=D755,F644 --fsync --preallocate dovecot opendmarc $remote:/etc/

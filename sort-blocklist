@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd blocklist
+
+for file in addresses.txt domains.txt strings.txt; do
+    sort -u $file | sponge $file
+done
