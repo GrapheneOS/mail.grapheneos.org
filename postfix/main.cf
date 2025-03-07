@@ -555,7 +555,7 @@ home_mailbox = Maildir/
 # For details, see "man header_checks".
 #
 header_checks = pcre:/etc/postfix/header_checks
-body_checks = pcre:/etc/postfix/body_checks
+#body_checks = pcre:/etc/postfix/body_checks
 
 # FAST ETRN SERVICE
 #
