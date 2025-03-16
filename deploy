@@ -17,6 +17,7 @@ remote=root@mail.grapheneos.org
 
 ./sort-blocklist
 ./generate-blocklist
+cp blocklist/client_access.cidr postfix/client_access.cidr
 
 rsync -rpcv --delete --chmod=D755,F644 --fsync --preallocate dovecot opendmarc $remote:/etc/
 rsync -rpcv --delete --chown root:opendkim --chmod=D750,F640 --fsync --preallocate opendkim $remote:/etc/
