@@ -687,8 +687,8 @@ sample_directory = /etc/postfix
 # readme_directory: The location of the Postfix README files.
 #
 readme_directory = /usr/share/doc/postfix
-shlib_directory = /usr/lib/postfix
 meta_directory = /etc/postfix
+shlib_directory = /usr/lib/postfix
 
 biff = no
 
