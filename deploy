@@ -11,7 +11,7 @@ if ! flock -n $fd; then
     exit 1
 fi
 
-gixy nginx/nginx.conf
+gixy --skips low_keepalive_requests nginx/nginx.conf
 
 remote=root@mail.grapheneos.org
 
