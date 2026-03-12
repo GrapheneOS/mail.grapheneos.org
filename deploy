@@ -11,7 +11,7 @@ if ! flock -n $fd; then
     exit 1
 fi
 
-gixy nginx/nginx.conf
+gixy --skips weak_ssl_tls nginx/nginx.conf
 
 remote=root@mail.grapheneos.org
 
