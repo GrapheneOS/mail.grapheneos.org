@@ -704,14 +704,14 @@ non_smtpd_milters = $smtpd_milters
 smtpd_restriction_classes = mua_sender_restrictions, mua_client_restrictions, mua_helo_restrictions
 mua_client_restrictions = reject_sender_login_mismatch, permit_sasl_authenticated, reject
 mua_sender_restrictions = permit_sasl_authenticated, reject
-mua_helo_restrictions = permit_mynetworks, reject_invalid_hostname, permit
+mua_helo_restrictions = permit_mynetworks, reject_invalid_helo_hostname, permit
 
 disable_vrfy_command = yes
 
 strict_rfc821_envelopes = yes
 
 smtpd_helo_required = yes
-smtpd_helo_restrictions = reject_invalid_hostname, reject_non_fqdn_hostname
+smtpd_helo_restrictions = reject_invalid_helo_hostname, reject_non_fqdn_helo_hostname
 
 smtpd_relay_restrictions = permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination
 smtpd_recipient_restrictions = check_client_access cidr:/etc/postfix/client_access.cidr, check_sender_access lmdb:/etc/postfix/sender_access, check_policy_service unix:private/policyd-spf
