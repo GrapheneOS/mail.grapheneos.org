@@ -2,12 +2,12 @@
 /backup-public-key.txt
 /backup/
 /blocklist/
-/cloud-archive.sh
 /cloud-archive-admin.sh
+/cloud-archive.sh
 /lock
 /opendkim/private.key
-/postfix/client_access.cidr
 /postfix/body_checks
+/postfix/client_access.cidr
 /postfix/header_checks
 /postfix/local_recipient
 /postfix/sender_access
