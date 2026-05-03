@@ -6,11 +6,11 @@
 /cloud-archive-admin.sh
 /lock
 /opendkim/private.key
-/postfix/aliases
 /postfix/client_access.cidr
 /postfix/body_checks
 /postfix/header_checks
 /postfix/local_recipient
 /postfix/sender_access
 /postfix/sender_login_maps
+/postfix/virtual
 /venv/

@@ -413,7 +413,8 @@ unknown_local_recipient_reject_code = 550
 #alias_maps = hash:/etc/aliases
 #alias_maps = hash:/etc/aliases, nis:mail.aliases
 #alias_maps = netinfo:/aliases
-alias_maps = lmdb:/etc/postfix/aliases
+#alias_maps = lmdb:/etc/postfix/aliases
+alias_maps =
 
 # The alias_database parameter specifies the alias database(s) that
 # are built with "newaliases" or "sendmail -bi".  This is a separate
@@ -425,6 +426,8 @@ alias_maps = lmdb:/etc/postfix/aliases
 #alias_database = hash:/etc/aliases
 #alias_database = hash:/etc/aliases, hash:/opt/majordomo/aliases
 alias_database = $alias_maps
+
+virtual_alias_maps = lmdb:/etc/postfix/virtual
 
 # ADDRESS EXTENSIONS (e.g., user+foo)
 #
