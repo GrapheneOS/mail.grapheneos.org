@@ -22,8 +22,8 @@ cp blocklist/client_access.cidr postfix/client_access.cidr
 rsync -rpcv --delete --chmod=D755,F644 --fsync --preallocate dovecot opendmarc $remote:/etc/
 rsync -rpcv --delete --chown root:opendkim --chmod=D750,F640 --fsync --preallocate opendkim $remote:/etc/
 rsync -pcv --chmod=644 --fsync --preallocate python-policyd-spf/policyd-spf.conf $remote:/etc/python-policyd-spf
-rsync -rpcv --chmod=D755,F644 --fsync --preallocate postfix/{body_checks,client_access.cidr,header_checks,local_recipient,main.cf,master.cf,sender_access,sender_login_maps,submission_header_checks,virtual} $remote:/etc/postfix/
-ssh $remote "postmap /etc/postfix/{local_recipient,sender_access,sender_login_maps,virtual}"
+rsync -rpcv --chmod=D755,F644 --fsync --preallocate postfix/{body_checks,client_access.cidr,header_checks,local_recipient,main.cf,master.cf,sender_access,sender_login,submission_header_checks,virtual} $remote:/etc/postfix/
+ssh $remote "postmap /etc/postfix/{local_recipient,sender_access,sender_login,virtual}"
 rsync -rpcv --chmod=D755,F644 --fsync --preallocate systemd/ $remote:/etc/systemd/
 rsync -rpcv --chmod=D755,F644 --fsync --preallocate tmpfiles.d/opendmarc.conf $remote:/etc/tmpfiles.d/
 rsync -pcv --chmod=755 --fsync --preallocate remote-backup $remote:/usr/local/bin/

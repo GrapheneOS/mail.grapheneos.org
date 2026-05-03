@@ -11,6 +11,6 @@
 /postfix/header_checks
 /postfix/local_recipient
 /postfix/sender_access
-/postfix/sender_login_maps
+/postfix/sender_login
 /postfix/virtual
 /venv/

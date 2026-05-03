@@ -724,7 +724,7 @@ smtpd_relay_restrictions = permit_mynetworks, permit_sasl_authenticated, reject_
 smtpd_recipient_restrictions = check_client_access cidr:/etc/postfix/client_access.cidr, check_sender_access lmdb:/etc/postfix/sender_access, check_policy_service unix:private/policyd-spf
 
 smtpd_reject_unlisted_sender = yes
-smtpd_sender_login_maps = lmdb:/etc/postfix/sender_login_maps
+smtpd_sender_login_maps = lmdb:/etc/postfix/sender_login
 
 smtpd_sasl_type = dovecot
 smtpd_sasl_path = private/auth
