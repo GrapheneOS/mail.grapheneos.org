@@ -698,6 +698,9 @@ meta_directory = /etc/postfix
 
 biff = no
 
+# apply filters to bounces to support DKIM signing
+internal_mail_filter_classes = bounce
+
 smtpd_milters = unix:/run/opendkim/opendkim.sock,unix:/run/opendmarc/opendmarc.sock
 non_smtpd_milters = $smtpd_milters
 
