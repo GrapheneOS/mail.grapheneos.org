@@ -4,8 +4,8 @@
 /blocklist/
 /cloud-archive-admin.sh
 /cloud-archive.sh
+/dkim/private.key
 /lock
-/opendkim/private.key
 /postfix/body_checks
 /postfix/client_access.cidr
 /postfix/header_checks

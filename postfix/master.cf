@@ -153,5 +153,3 @@ postlog   unix-dgram n  -       n       -       1       postlogd
 #mailman   unix  -       n       n       -       -       pipe
 #  flags=FRX user=list argv=/usr/lib/mailman/bin/postfix-to-mailman.py
 #  ${nexthop} ${user}
-policyd-spf  unix  -       n       n       -       0       spawn
-     user=policyd-spf argv=/usr/bin/policyd-spf
