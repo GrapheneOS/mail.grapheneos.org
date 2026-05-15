@@ -446,7 +446,7 @@ alias_database = $alias_maps
 # "Maildir/" for qmail-style delivery (the / is required).
 #
 #home_mailbox = Mailbox
-home_mailbox = Maildir/
+#home_mailbox = Maildir/
 
 # The mail_spool_directory parameter specifies the directory where
 # UNIX-style mailboxes are kept. The default setting depends on the
@@ -498,7 +498,7 @@ home_mailbox = Maildir/
 #
 # Cyrus IMAP via command line. Uncomment the "cyrus...pipe" and
 # subsequent line in master.cf.
-#mailbox_transport = cyrus
+mailbox_transport = lmtp:unix:private/dovecot-lmtp
 
 # The fallback_transport specifies the optional transport in master.cf
 # to use for recipients that are not found in the UNIX passwd database.
