@@ -185,7 +185,7 @@ myhostname = mail.grapheneos.org
 #mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain
 #mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain,
 #	mail.$mydomain, www.$mydomain, ftp.$mydomain
-mydestination = $myhostname attestation.app grapheneos.app grapheneos.ca grapheneos.com grapheneos.dev grapheneos.foundation grapheneos.info grapheneos.net grapheneos.network grapheneos.online discuss.grapheneos.org matrix.grapheneos.org grapheneos.org grapheneos.ovh grapheneos.page grapheneos.social seamlessupdate.app vanadium.app
+mydestination = grapheneos.org
 
 # REJECTING MAIL FOR UNKNOWN LOCAL USERS
 #
@@ -426,8 +426,6 @@ alias_maps =
 #alias_database = hash:/etc/aliases
 #alias_database = hash:/etc/aliases, hash:/opt/majordomo/aliases
 alias_database = $alias_maps
-
-virtual_alias_maps = lmdb:/etc/postfix/virtual
 
 # ADDRESS EXTENSIONS (e.g., user+foo)
 #
@@ -701,6 +699,9 @@ shlib_directory = /usr/lib/postfix
 meta_directory = /etc/postfix
 
 biff = no
+
+virtual_alias_domains = attestation.app grapheneos.app grapheneos.ca grapheneos.com grapheneos.dev grapheneos.foundation grapheneos.info grapheneos.net grapheneos.network grapheneos.online discuss.grapheneos.org mail.grapheneos.org matrix.grapheneos.org grapheneos.ovh grapheneos.page grapheneos.social seamlessupdate.app vanadium.app
+virtual_alias_maps = lmdb:/etc/postfix/virtual
 
 # apply filters to bounces to support DKIM signing
 internal_mail_filter_classes = bounce
