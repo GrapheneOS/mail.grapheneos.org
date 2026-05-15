@@ -23,8 +23,8 @@ rsync -rpcv --delete --chmod=D755,F644 --fsync --preallocate dovecot $remote:/et
 ssh $remote "mkdir -p /var/lib/rspamd/postfix && chmod 750 /var/lib/rspamd/postfix && chown rspamd:postfix /var/lib/rspamd/postfix"
 rsync --delete -rpcv --chown root:root --chmod=F644 --fsync --preallocate rspamd/local.d/ $remote:/etc/rspamd/local.d/
 rsync -rpcv --delete --chown root:rspamd --chmod=D750,F640 --fsync --preallocate dkim $remote:/etc/
-rsync -rpcv --chmod=D755,F644 --fsync --preallocate postfix/{body_checks,client_access.cidr,header_checks,local_recipient,main.cf,master.cf,sender_access,sender_login,submission_header_checks,virtual} $remote:/etc/postfix/
-ssh $remote "postmap /etc/postfix/{local_recipient,sender_access,sender_login,virtual}"
+rsync -rpcv --chmod=D755,F644 --fsync --preallocate postfix/{body_checks,client_access.cidr,header_checks,local_recipient,main.cf,master.cf,sender_access,sender_login,submission_header_checks,virtual,virtual_recipient} $remote:/etc/postfix
+ssh $remote "postmap /etc/postfix/{local_recipient,sender_access,sender_login,virtual,virtual_recipient}"
 rsync -rpcv --chmod=D755,F644 --fsync --preallocate systemd/ $remote:/etc/systemd/
 rsync -pcv --chmod=755 --fsync --preallocate remote-backup $remote:/usr/local/bin/
 rsync -pcv --chmod=644 --fsync --preallocate systemd/system/remote-backup.timer $remote:/etc/systemd/system/remote-backup.timer

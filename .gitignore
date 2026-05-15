@@ -13,4 +13,5 @@
 /postfix/sender_access
 /postfix/sender_login
 /postfix/virtual
+/postfix/virtual_recipient
 /venv/
