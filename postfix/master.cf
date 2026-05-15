@@ -29,9 +29,9 @@ smtp      inet  n       -       n       -       -       smtpd
 #     specify "smtpd_<xxx>_restrictions=$mua_<xxx>_restrictions"
 #     here, and specify mua_<xxx>_restrictions in main.cf (where
 #     "<xxx>" is "client", "helo", "sender", "relay", or "recipient").
-#  -o smtpd_client_restrictions=
-#  -o smtpd_helo_restrictions=
-#  -o smtpd_sender_restrictions=
+#  -o smtpd_client_restrictions=$mua_client_restrictions
+#  -o smtpd_helo_restrictions=$mua_helo_restrictions
+#  -o smtpd_sender_restrictions=$mua_sender_restrictions
 #  -o smtpd_relay_restrictions=
 #  -o smtpd_recipient_restrictions=permit_sasl_authenticated,reject
 #  -o milter_macro_daemon_name=ORIGINATING
