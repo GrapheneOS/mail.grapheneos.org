@@ -26,6 +26,7 @@ rsync -rpcv --delete --chown root:rspamd --chmod=D750,F640 --fsync --preallocate
 rsync -rpcv --chmod=D755,F644 --fsync --preallocate postfix/{body_checks,client_access.cidr,header_checks,local_recipient,main.cf,master.cf,sender_access,sender_login,submission_header_checks,virtual,virtual_recipient} $remote:/etc/postfix
 ssh $remote "postmap /etc/postfix/{local_recipient,sender_access,sender_login,virtual,virtual_recipient}"
 rsync -rpcv --chmod=D755,F644 --fsync --preallocate systemd/system/{dovecot.service.d,postfix.service.d,remote-backup.service,remote-backup.timer,rspamd.service.d} $remote:/etc/systemd/system/
+ssh $remote systemctl daemon-reload
 rsync -pcv --chmod=755 --fsync --preallocate remote-backup $remote:/usr/local/bin/
 rsync -pcv --chmod=644 --fsync --preallocate backup-public-key.txt cloud-archive.sh $remote:
 rsync -rpcv --chmod=D755,F644 --fsync --preallocate nginx/{nginx.conf,mime.types} $remote:/etc/nginx/
