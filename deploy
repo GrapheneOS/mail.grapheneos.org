@@ -24,7 +24,11 @@ cp blocklist/client_access.cidr postfix/client_access.cidr
 
 rsync dovecot/dovecot.conf $remote:/etc/dovecot/dovecot.conf
 
-ssh $remote "mkdir -p /var/lib/rspamd/postfix && chmod 750 /var/lib/rspamd/postfix && chown rspamd:postfix /var/lib/rspamd/postfix"
+rsync valkey/valkey.conf $remote:/etc/valkey/valkey.conf
+ssh $remote 'usermod -aG valkey rspamd &&
+mkdir -p /var/lib/rspamd/postfix &&
+chmod 750 /var/lib/rspamd/postfix &&
+chown rspamd:postfix /var/lib/rspamd/postfix'
 rsync -r --delete rspamd/local.d/ $remote:/etc/rspamd/local.d/
 rsync -r --delete --chown root:rspamd --chmod=D750,F640 dkim $remote:/etc/
 
