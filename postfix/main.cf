@@ -557,8 +557,7 @@ alias_database = $alias_maps
 #
 # For details, see "man header_checks".
 #
-header_checks = pcre:/etc/postfix/header_checks
-body_checks = pcre:/etc/postfix/body_checks
+#header_checks = regexp:/etc/postfix/header_checks
 
 # FAST ETRN SERVICE
 #
@@ -726,7 +725,7 @@ smtpd_helo_required = yes
 smtpd_helo_restrictions = reject_invalid_helo_hostname, reject_non_fqdn_helo_hostname
 
 smtpd_relay_restrictions = permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination
-smtpd_recipient_restrictions = check_client_access cidr:/etc/postfix/client_access.cidr, check_sender_access lmdb:/etc/postfix/sender_access
+smtpd_recipient_restrictions = check_client_access cidr:/etc/postfix/client_access.cidr
 
 smtpd_reject_unlisted_sender = yes
 smtpd_sender_login_maps = lmdb:/etc/postfix/sender_login

@@ -19,8 +19,7 @@ gixy nginx/nginx.conf
 
 remote=root@mail.grapheneos.org
 
-./sort-blocklist
-./generate-blocklist
+cp blocklist/blocklist_{addr,esld,text}.map rspamd/local.d/maps.d/
 cp blocklist/client_access.cidr postfix/client_access.cidr
 
 rsync dovecot/dovecot.conf $remote:/etc/dovecot/dovecot.conf
@@ -29,8 +28,8 @@ ssh $remote "mkdir -p /var/lib/rspamd/postfix && chmod 750 /var/lib/rspamd/postf
 rsync -r --delete rspamd/local.d/ $remote:/etc/rspamd/local.d/
 rsync -r --delete --chown root:rspamd --chmod=D750,F640 dkim $remote:/etc/
 
-rsync postfix/{body_checks,client_access.cidr,header_checks,local_recipient,main.cf,master.cf,sender_access,sender_login,submission_header_checks,virtual,virtual_recipient} $remote:/etc/postfix
-ssh $remote "postmap /etc/postfix/{local_recipient,sender_access,sender_login,virtual,virtual_recipient}"
+rsync postfix/{client_access.cidr,local_recipient,main.cf,master.cf,sender_login,submission_header_checks,virtual,virtual_recipient} $remote:/etc/postfix
+ssh $remote "postmap /etc/postfix/{local_recipient,sender_login,virtual,virtual_recipient}"
 
 rsync -r --delete systemd/system/{dovecot.service.d,postfix.service.d,remote-backup.service,remote-backup.timer,rspamd.service.d} $remote:/etc/systemd/system/
 ssh $remote systemctl daemon-reload

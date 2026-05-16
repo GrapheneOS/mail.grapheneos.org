@@ -6,12 +6,12 @@
 /cloud-archive.sh
 /dkim/private.key
 /lock
-/postfix/body_checks
 /postfix/client_access.cidr
-/postfix/header_checks
 /postfix/local_recipient
-/postfix/sender_access
 /postfix/sender_login
 /postfix/virtual
 /postfix/virtual_recipient
+/rspamd/local.d/maps.d/blocklist_addr.map
+/rspamd/local.d/maps.d/blocklist_esld.map
+/rspamd/local.d/maps.d/blocklist_text.map
 /venv/
