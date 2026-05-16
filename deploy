@@ -2,6 +2,10 @@
 
 set -o errexit -o nounset -o pipefail
 
+rsync() {
+    command rsync -pcv --chmod=D755,F644 --preallocate "$@"
+}
+
 source venv/bin/activate
 
 touch lock
@@ -19,20 +23,20 @@ remote=root@mail.grapheneos.org
 ./generate-blocklist
 cp blocklist/client_access.cidr postfix/client_access.cidr
 
-rsync -rpcv --delete --chmod=D755,F644 --fsync --preallocate dovecot $remote:/etc/
+rsync dovecot/dovecot.conf $remote:/etc/dovecot/dovecot.conf
 
 ssh $remote "mkdir -p /var/lib/rspamd/postfix && chmod 750 /var/lib/rspamd/postfix && chown rspamd:postfix /var/lib/rspamd/postfix"
-rsync --delete -rpcv --chown root:root --chmod=F644 --fsync --preallocate rspamd/local.d/ $remote:/etc/rspamd/local.d/
-rsync -rpcv --delete --chown root:rspamd --chmod=D750,F640 --fsync --preallocate dkim $remote:/etc/
+rsync -r --delete rspamd/local.d/ $remote:/etc/rspamd/local.d/
+rsync -r --delete --chown root:rspamd --chmod=D750,F640 dkim $remote:/etc/
 
-rsync -rpcv --chmod=D755,F644 --fsync --preallocate postfix/{body_checks,client_access.cidr,header_checks,local_recipient,main.cf,master.cf,sender_access,sender_login,submission_header_checks,virtual,virtual_recipient} $remote:/etc/postfix
+rsync postfix/{body_checks,client_access.cidr,header_checks,local_recipient,main.cf,master.cf,sender_access,sender_login,submission_header_checks,virtual,virtual_recipient} $remote:/etc/postfix
 ssh $remote "postmap /etc/postfix/{local_recipient,sender_access,sender_login,virtual,virtual_recipient}"
 
-rsync -rpcv --chmod=D755,F644 --fsync --preallocate systemd/system/{dovecot.service.d,postfix.service.d,remote-backup.service,remote-backup.timer,rspamd.service.d} $remote:/etc/systemd/system/
+rsync -r --delete systemd/system/{dovecot.service.d,postfix.service.d,remote-backup.service,remote-backup.timer,rspamd.service.d} $remote:/etc/systemd/system/
 ssh $remote systemctl daemon-reload
 
-rsync -pcv --chmod=755 --fsync --preallocate remote-backup $remote:/usr/local/bin/
-rsync -pcv --chmod=644 --fsync --preallocate backup-public-key.txt cloud-archive.sh $remote:
+rsync --chmod=755 remote-backup $remote:/usr/local/bin/
+rsync backup-public-key.txt cloud-archive.sh $remote:
 
-rsync -rpcv --chmod=D755,F644 --fsync --preallocate nginx/{nginx.conf,mime.types} $remote:/etc/nginx/
+rsync nginx/{nginx.conf,mime.types} $remote:/etc/nginx/
 ssh $remote systemctl reload nginx
