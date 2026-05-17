@@ -13,5 +13,7 @@
 /postfix/virtual_recipient
 /rspamd/local.d/maps.d/blocklist_addr.map
 /rspamd/local.d/maps.d/blocklist_esld.map
+/rspamd/local.d/maps.d/blocklist_ip.map
 /rspamd/local.d/maps.d/blocklist_text.map
+/rspamd/local.d/maps.d/tor_exit.map
 /venv/

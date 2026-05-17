@@ -15,4 +15,4 @@ with open("blocklist/asn.txt") as asns:
 
         response = requests.get("https://stat.ripe.net/data/announced-prefixes/data.json?resource=AS" + asn)
         for prefix in response.json()["data"]["prefixes"]:
-            print(prefix["prefix"] + " REJECT")
+            print(prefix["prefix"])
