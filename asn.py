@@ -10,9 +10,6 @@ with open("blocklist/asn.txt") as asns:
             print(asn)
             continue
 
-        # response = requests.get("https://stat.ripe.net/data/as-overview/data.json?resource=" + asn)
-        # print(response.json()["data"]["holder"])
-
         response = requests.get("https://stat.ripe.net/data/announced-prefixes/data.json?resource=AS" + asn)
         for prefix in response.json()["data"]["prefixes"]:
             print(prefix["prefix"])
