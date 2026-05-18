@@ -7,7 +7,6 @@
 /dkim/private.key
 /lock
 /postfix/client_access.cidr
-/postfix/local_recipient
 /postfix/sender_login
 /postfix/virtual
 /postfix/virtual_recipient
