@@ -21,8 +21,11 @@ remote=root@mail.grapheneos.org
 
 cp blocklist/{{blocklist_{addr,esld,ip,text},tor_exit},spam_text}.map rspamd/local.d/maps.d/
 
-rsync -r --delete dovecot/ $remote:/etc/dovecot/
-ssh $remote sievec /etc/dovecot/sieve/default.sieve
+rsync dovecot/dovecot.conf $remote:/etc/dovecot/
+rsync -r --delete dovecot/sieve/ $remote:/etc/dovecot/sieve/
+ssh $remote 'groupadd -rf dovecot-auth &&
+sievec /etc/dovecot/sieve/default.sieve'
+rsync --chmod=640 --chown root:dovecot-auth dovecot/{passwd,shadow} $remote:/etc/dovecot/
 
 rsync valkey/valkey.conf $remote:/etc/valkey/valkey.conf
 ssh $remote 'usermod -aG valkey rspamd &&
