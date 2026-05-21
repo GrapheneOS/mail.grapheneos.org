@@ -29,9 +29,9 @@ rsync --chmod=640 --chown root:dovecot-auth dovecot/{passwd,shadow} $remote:/etc
 
 rsync valkey/valkey.conf $remote:/etc/valkey/valkey.conf
 ssh $remote 'usermod -aG valkey rspamd &&
-mkdir -p /var/lib/rspamd/postfix &&
-chmod 750 /var/lib/rspamd/postfix &&
-chown rspamd:postfix /var/lib/rspamd/postfix'
+mkdir -p /var/spool/postfix/rspamd &&
+chmod 750 /var/spool/postfix/rspamd &&
+chown rspamd:postfix /var/spool/postfix/rspamd'
 rsync -r --delete rspamd/local.d/ $remote:/etc/rspamd/local.d/
 rsync -r --delete --chown root:rspamd --chmod=D750,F640 dkim $remote:/etc/
 
