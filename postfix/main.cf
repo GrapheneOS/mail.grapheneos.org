@@ -700,7 +700,7 @@ meta_directory = /etc/postfix
 
 biff = no
 
-virtual_transport = lmtp:unix:private/dovecot-lmtp
+virtual_transport = lmtp:unix:dovecot/lmtp
 virtual_mailbox_domains = grapheneos.org
 virtual_mailbox_maps = lmdb:/etc/postfix/virtual_recipient
 virtual_alias_domains = attestation.app grapheneos.app grapheneos.ca grapheneos.com grapheneos.dev grapheneos.foundation grapheneos.info grapheneos.net grapheneos.network grapheneos.online discuss.grapheneos.org mail.grapheneos.org matrix.grapheneos.org grapheneos.ovh grapheneos.page grapheneos.social seamlessupdate.app vanadium.app
@@ -725,7 +725,7 @@ smtpd_reject_unlisted_sender = yes
 smtpd_sender_login_maps = lmdb:/etc/postfix/sender_login
 
 smtpd_sasl_type = dovecot
-smtpd_sasl_path = private/auth
+smtpd_sasl_path = dovecot/auth
 smtpd_sasl_auth_enable = yes
 
 mailbox_size_limit = 0
