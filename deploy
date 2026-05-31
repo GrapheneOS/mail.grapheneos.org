@@ -19,7 +19,7 @@ gixy nginx/nginx.conf
 
 remote=root@mail.grapheneos.org
 
-cp blocklist/{{blocklist_{addr,esld,ip,text},tor_exit},spam_text}.map rspamd/local.d/maps.d/
+cp blocklist/{{blocklist_{addr,esld,ip,text},tor_exit},dmarc_upgrade,spam_text}.map rspamd/local.d/maps.d/
 
 rsync dovecot/dovecot.conf $remote:/etc/dovecot/
 rsync -r --delete dovecot/sieve/ $remote:/etc/dovecot/sieve/
