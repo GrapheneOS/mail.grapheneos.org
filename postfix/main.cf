@@ -701,9 +701,9 @@ meta_directory = /etc/postfix
 biff = no
 
 virtual_transport = lmtp:unix:dovecot/lmtp
-virtual_mailbox_domains = grapheneos.org
+virtual_mailbox_domains = attestation.app grapheneos.org discuss.grapheneos.org matrix.grapheneos.org grapheneos.social
 virtual_mailbox_maps = lmdb:/etc/postfix/virtual_recipient
-virtual_alias_domains = attestation.app grapheneos.app grapheneos.ca grapheneos.com grapheneos.dev grapheneos.foundation grapheneos.info grapheneos.net grapheneos.network grapheneos.online discuss.grapheneos.org mail.grapheneos.org matrix.grapheneos.org grapheneos.ovh grapheneos.page grapheneos.social seamlessupdate.app vanadium.app
+virtual_alias_domains = grapheneos.app grapheneos.ca grapheneos.com grapheneos.dev grapheneos.foundation grapheneos.info grapheneos.net grapheneos.network grapheneos.online mail.grapheneos.org grapheneos.ovh grapheneos.page seamlessupdate.app vanadium.app
 virtual_alias_maps = lmdb:/etc/postfix/virtual
 
 # apply filters to bounces to support DKIM signing
