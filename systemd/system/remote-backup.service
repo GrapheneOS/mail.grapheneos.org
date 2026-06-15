@@ -29,7 +29,6 @@ RestrictRealtime=yes
 RestrictSUIDSGID=yes
 SystemCallArchitectures=native
 SystemCallFilter=@system-service
-SystemCallFilter=~@obsolete
 Type=oneshot
 UMask=0077
 User=root
