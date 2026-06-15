@@ -33,7 +33,7 @@ mkdir -p /var/spool/postfix/{dovecot,rspamd} &&
 chmod 750 /var/spool/postfix/{dovecot,rspamd} &&
 chown postfix:postfix /var/spool/postfix/dovecot &&
 chown rspamd:postfix /var/spool/postfix/rspamd'
-rsync -r --delete rspamd/local.d/ $remote:/etc/rspamd/local.d/
+rsync -r --delete rspamd/{local.d,override.d} $remote:/etc/rspamd/
 rsync -r --delete --chown root:rspamd --chmod=D750,F640 dkim $remote:/etc/
 
 rsync postfix/{local_recipient,main.cf,master.cf,sender_login,submission_header_checks,virtual,virtual_recipient} $remote:/etc/postfix
