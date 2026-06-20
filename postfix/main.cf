@@ -230,7 +230,6 @@ mydestination =
 #local_recipient_maps = proxy:unix:passwd.byname $alias_maps
 #local_recipient_maps =
 local_recipient_maps = lmdb:/etc/postfix/local_recipient
-local_transport = error:local transport is disabled
 
 # The unknown_local_recipient_reject_code specifies the SMTP server
 # response code when a recipient domain matches $mydestination or
@@ -699,6 +698,9 @@ shlib_directory = /usr/lib/postfix
 meta_directory = /etc/postfix
 
 biff = no
+
+local_transport = error:local transport is disabled
+relay_transport = error:relay transport is disabled
 
 virtual_transport = lmtp:unix:dovecot/lmtp
 virtual_mailbox_domains = attestation.app grapheneos.org discuss.grapheneos.org matrix.grapheneos.org grapheneos.social

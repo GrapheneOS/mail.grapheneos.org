@@ -74,8 +74,8 @@ flush     unix  n       -       y       1000?   0       flush
 #proxymap  unix  -       -       y       -       -       proxymap
 #proxywrite unix -       -       y       -       1       proxymap
 smtp      unix  -       -       y       -       -       smtp
-relay     unix  -       -       y       -       -       smtp
-        -o syslog_name=${multi_instance_name?{$multi_instance_name}:{postfix}}/$service_name
+#relay     unix  -       -       y       -       -       smtp
+#        -o syslog_name=${multi_instance_name?{$multi_instance_name}:{postfix}}/$service_name
 #       -o smtp_helo_timeout=5 -o smtp_connect_timeout=5
 showq     unix  n       -       y       -       -       showq
 error     unix  -       -       y       -       -       error
