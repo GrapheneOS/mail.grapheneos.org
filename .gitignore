@@ -10,6 +10,7 @@
 /lock
 /postfix/client_access.cidr
 /postfix/sender_login
+/postfix/tls_policy
 /postfix/virtual
 /postfix/virtual_recipient
 /rspamd/local.d/maps.d/blocklist_addr.map

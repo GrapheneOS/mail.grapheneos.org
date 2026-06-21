@@ -742,6 +742,7 @@ smtp_dns_support_level = dnssec
 
 smtpd_tls_security_level = encrypt
 smtp_tls_security_level = dane
+smtp_tls_policy_maps = lmdb:/etc/postfix/tls_policy
 
 smtp_tls_mandatory_protocols = >=TLSv1.2
 smtp_tls_protocols = >=TLSv1.2
