@@ -1,0 +1,10 @@
+postfix = postfix_settings
+
+[postfix_settings]
+ssl_conf = postfix_ssl_conf
+
+[postfix_ssl_conf]
+system_default = postfix_system_default
+
+[postfix_system_default]
+SignatureAlgorithms = ECDSA+SHA512:ECDSA+SHA384:ECDSA+SHA256:RSA-PSS+SHA512:RSA-PSS+SHA384:RSA-PSS+SHA256:RSA+SHA512:RSA+SHA384:RSA+SHA256

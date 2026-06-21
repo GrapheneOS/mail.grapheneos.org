@@ -757,6 +757,9 @@ smtpd_tls_mandatory_ciphers = high
 tls_high_cipherlist = ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256
 tls_preempt_cipherlist = yes
 
+tls_config_file = /etc/postfix/openssl.cnf
+tls_config_name = postfix
+
 smtp_tls_session_cache_timeout = 86400s
 smtpd_tls_session_cache_timeout = 86400s
 
