@@ -2,15 +2,13 @@ compatibility_level = 3.11
 
 myhostname = mail.grapheneos.org
 
+local_transport = error:local transport is disabled
 mydestination =
 local_recipient_maps = lmdb:/etc/postfix/local_recipient
-
 alias_maps =
 alias_database = $alias_maps
-
 biff = no
 
-local_transport = error:local transport is disabled
 relay_transport = error:relay transport is disabled
 
 virtual_transport = lmtp:unix:dovecot/lmtp
