@@ -25,6 +25,8 @@ non_smtpd_milters = $smtpd_milters
 
 disable_vrfy_command = yes
 
+allow_percent_hack = no
+
 strict_rfc821_envelopes = yes
 strict_smtputf8 = yes
 
