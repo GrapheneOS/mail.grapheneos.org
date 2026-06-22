@@ -39,6 +39,10 @@ smtpd_recipient_restrictions = reject_non_fqdn_recipient
 smtpd_reject_unlisted_sender = yes
 smtpd_sender_login_maps = lmdb:/etc/postfix/sender_login
 
+authorized_flush_users =
+authorized_mailq_users =
+authorized_submit_users = root
+
 smtpd_sasl_type = dovecot
 smtpd_sasl_path = dovecot/auth
 smtpd_sasl_auth_enable = yes
