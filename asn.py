@@ -3,7 +3,7 @@
 import json
 import requests
 
-with open("blocklist/asn.txt") as asns:
+with open("private/rspamd/asn.txt") as asns:
     for asn in asns.read().splitlines():
         if asn[0] == "#":
             print()

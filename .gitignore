@@ -1,7 +1,6 @@
 /backup-key.txt
 /backup-public-key.txt
 /backup/
-/blocklist/
 /cloud-archive-admin.sh
 /cloud-archive.sh
 /dovecot/passwd
@@ -13,6 +12,7 @@
 /postfix/tls_policy
 /postfix/virtual
 /postfix/virtual_recipient
+/private/
 /rspamd/local.d/maps.d/blocklist_addr.map
 /rspamd/local.d/maps.d/blocklist_esld.map
 /rspamd/local.d/maps.d/blocklist_ip.map
