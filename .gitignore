@@ -7,7 +7,6 @@
 /dovecot/shadow
 /dkim/private.key
 /lock
-/postfix/client_access.cidr
 /postfix/sender_login
 /postfix/tls_policy
 /postfix/virtual
