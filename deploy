@@ -23,7 +23,7 @@ rsync dovecot/dovecot.conf $remote:/etc/dovecot/
 rsync -r --delete dovecot/sieve/ $remote:/etc/dovecot/sieve/
 ssh $remote 'groupadd -rf dovecot-auth &&
 sievec /etc/dovecot/sieve/default.sieve'
-rsync --chmod=640 --chown root:dovecot-auth dovecot/{passwd,shadow} $remote:/etc/dovecot/
+rsync --chmod=640 --chown root:dovecot-auth private/dovecot/{passwd,shadow} $remote:/etc/dovecot/
 
 rsync valkey/valkey.conf $remote:/etc/valkey/valkey.conf
 ssh $remote 'usermod -aG valkey rspamd &&
@@ -32,16 +32,17 @@ chmod 750 /var/spool/postfix/{dovecot,rspamd} &&
 chown postfix:postfix /var/spool/postfix/dovecot &&
 chown rspamd:postfix /var/spool/postfix/rspamd'
 rsync -rL --delete rspamd/{local.d,override.d} $remote:/etc/rspamd/
-rsync -r --delete --chown root:rspamd --chmod=D750,F640 dkim $remote:/etc/
+rsync -rL --delete --chown root:rspamd --chmod=D750,F640 dkim $remote:/etc/
 
-rsync postfix/{local_recipient,main.cf,master.cf,openssl.cnf,sender_login,submission_header_checks,tls_policy,virtual,virtual_recipient} $remote:/etc/postfix
+rsync postfix/{local_recipient,main.cf,master.cf,openssl.cnf,submission_header_checks} $remote:/etc/postfix
+rsync private/postfix/{sender_login,tls_policy,virtual,virtual_recipient} $remote:/etc/postfix
 ssh $remote "postmap /etc/postfix/{local_recipient,sender_login,tls_policy,virtual,virtual_recipient}"
 
 rsync -r --delete systemd/system/{dovecot.service.d,postfix.service.d,remote-backup.service,remote-backup.timer,rspamd.service.d,valkey.service.d} $remote:/etc/systemd/system/
 ssh $remote systemctl daemon-reload
 
 rsync --chmod=755 remote-backup $remote:/usr/local/bin/
-rsync backup-public-key.txt cloud-archive.sh $remote:
+rsync private/backup-public-key.txt private/cloud-archive.sh $remote:
 
 rsync nginx/{nginx.conf,mime.types} $remote:/etc/nginx/
 ssh $remote systemctl reload nginx

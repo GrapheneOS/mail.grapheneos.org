@@ -1,16 +1,4 @@
-/backup-key.txt
-/backup-public-key.txt
 /backup/
-/cloud-archive-admin.sh
-/cloud-archive.sh
-/dovecot/passwd
-/dovecot/shadow
-/dkim/private.key
 /lock
-/postfix/sender_login
-/postfix/tls_policy
-/postfix/virtual
-/postfix/virtual_recipient
 /private/
-/rspamd/local.d/maps.d/surbl-whitelist.inc.local
 /venv/
