@@ -13,14 +13,5 @@
 /postfix/virtual
 /postfix/virtual_recipient
 /private/
-/rspamd/local.d/maps.d/blocklist_addr.map
-/rspamd/local.d/maps.d/blocklist_esld.map
-/rspamd/local.d/maps.d/blocklist_ip.map
-/rspamd/local.d/maps.d/blocklist_text.map
-/rspamd/local.d/maps.d/dmarc_upgrade.map
-/rspamd/local.d/maps.d/good_addr.map
-/rspamd/local.d/maps.d/good_esld.map
-/rspamd/local.d/maps.d/spam_text.map
 /rspamd/local.d/maps.d/surbl-whitelist.inc.local
-/rspamd/local.d/maps.d/tor_exit.map
 /venv/

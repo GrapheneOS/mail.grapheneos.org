@@ -19,8 +19,6 @@ gixy nginx/nginx.conf
 
 remote=root@mail.grapheneos.org
 
-cp private/rspamd/{{blocklist_{addr,esld,ip,text},tor_exit},dmarc_upgrade,good_{addr,esld},spam_text}.map rspamd/local.d/maps.d/
-
 rsync dovecot/dovecot.conf $remote:/etc/dovecot/
 rsync -r --delete dovecot/sieve/ $remote:/etc/dovecot/sieve/
 ssh $remote 'groupadd -rf dovecot-auth &&
@@ -33,7 +31,7 @@ mkdir -p /var/spool/postfix/{dovecot,rspamd} &&
 chmod 750 /var/spool/postfix/{dovecot,rspamd} &&
 chown postfix:postfix /var/spool/postfix/dovecot &&
 chown rspamd:postfix /var/spool/postfix/rspamd'
-rsync -r --delete rspamd/{local.d,override.d} $remote:/etc/rspamd/
+rsync -rL --delete rspamd/{local.d,override.d} $remote:/etc/rspamd/
 rsync -r --delete --chown root:rspamd --chmod=D750,F640 dkim $remote:/etc/
 
 rsync postfix/{local_recipient,main.cf,master.cf,openssl.cnf,sender_login,submission_header_checks,tls_policy,virtual,virtual_recipient} $remote:/etc/postfix
