@@ -3,6 +3,7 @@
 #               (yes)   (yes)   (no)    (never) (100)
 # ==========================================================================
 smtp      inet  n       -       y       -       -       smtpd
+tlsproxy  unix  -       -       y       -       0       tlsproxy
 submissions     inet  n       -       y       -       -       smtpd
   -o syslog_name=postfix/submissions
   -o smtpd_forbid_unauth_pipelining=no

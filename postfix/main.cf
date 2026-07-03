@@ -76,6 +76,7 @@ tls_preempt_cipherlist = yes
 tls_config_file = /etc/postfix/openssl.cnf
 tls_config_name = postfix
 
+smtp_tls_connection_reuse = yes
 smtp_tls_session_cache_timeout = 86400s
 smtpd_tls_session_cache_timeout = 86400s
 
