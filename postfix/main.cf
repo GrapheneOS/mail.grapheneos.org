@@ -30,6 +30,7 @@ allow_percent_hack = no
 strict_rfc821_envelopes = yes
 strict_smtputf8 = yes
 
+smtpd_client_restrictions = reject_unknown_client_hostname
 smtpd_helo_required = yes
 smtpd_helo_restrictions = reject_invalid_helo_hostname, reject_non_fqdn_helo_hostname
 smtpd_sender_restrictions = reject_non_fqdn_sender, reject_sender_login_mismatch
