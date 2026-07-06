@@ -27,6 +27,8 @@ disable_vrfy_command = yes
 
 allow_percent_hack = no
 
+smtpd_forbid_bare_newline = reject
+smtpd_forbid_bare_newline_exclusions =
 strict_rfc821_envelopes = yes
 strict_smtputf8 = yes
 
