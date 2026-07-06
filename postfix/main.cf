@@ -17,6 +17,8 @@ virtual_mailbox_maps = lmdb:/etc/postfix/virtual_recipient
 virtual_alias_domains = grapheneos.app, grapheneos.ca, grapheneos.com, grapheneos.dev, grapheneos.foundation, grapheneos.info, grapheneos.net, grapheneos.network, grapheneos.online, mail.grapheneos.org, grapheneos.ovh, grapheneos.page, seamlessupdate.app, vanadium.app
 virtual_alias_maps = lmdb:/etc/postfix/virtual
 
+smtpd_client_event_limit_exceptions =
+
 smtpd_forbid_bare_newline = reject
 smtpd_forbid_bare_newline_exclusions =
 strict_rfc821_envelopes = yes
@@ -30,7 +32,7 @@ smtpd_helo_restrictions = reject_invalid_helo_hostname, reject_non_fqdn_helo_hos
 smtpd_sender_restrictions = reject_non_fqdn_sender, reject_sender_login_mismatch, reject_unknown_sender_domain
 smtpd_sender_login_maps = lmdb:/etc/postfix/sender_login
 smtpd_reject_unlisted_sender = yes
-smtpd_relay_restrictions = permit_mynetworks, reject_unauth_destination
+smtpd_relay_restrictions = reject_unauth_destination
 smtpd_recipient_restrictions = reject_non_fqdn_recipient
 
 smtpd_milters = unix:rspamd/milter.sock
