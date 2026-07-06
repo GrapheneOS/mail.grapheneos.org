@@ -17,30 +17,27 @@ virtual_mailbox_maps = lmdb:/etc/postfix/virtual_recipient
 virtual_alias_domains = grapheneos.app, grapheneos.ca, grapheneos.com, grapheneos.dev, grapheneos.foundation, grapheneos.info, grapheneos.net, grapheneos.network, grapheneos.online, mail.grapheneos.org, grapheneos.ovh, grapheneos.page, seamlessupdate.app, vanadium.app
 virtual_alias_maps = lmdb:/etc/postfix/virtual
 
-# apply filters to bounces to support DKIM signing
-internal_mail_filter_classes = bounce
-
-smtpd_milters = unix:rspamd/milter.sock
-non_smtpd_milters = $smtpd_milters
-
-disable_vrfy_command = yes
-
-allow_percent_hack = no
-
 smtpd_forbid_bare_newline = reject
 smtpd_forbid_bare_newline_exclusions =
 strict_rfc821_envelopes = yes
 strict_smtputf8 = yes
 
+disable_vrfy_command = yes
+
 smtpd_client_restrictions = reject_unknown_client_hostname
 smtpd_helo_required = yes
 smtpd_helo_restrictions = reject_invalid_helo_hostname, reject_non_fqdn_helo_hostname, reject_unknown_helo_hostname
 smtpd_sender_restrictions = reject_non_fqdn_sender, reject_sender_login_mismatch, reject_unknown_sender_domain
+smtpd_sender_login_maps = lmdb:/etc/postfix/sender_login
+smtpd_reject_unlisted_sender = yes
 smtpd_relay_restrictions = permit_mynetworks, reject_unauth_destination
 smtpd_recipient_restrictions = reject_non_fqdn_recipient
 
-smtpd_reject_unlisted_sender = yes
-smtpd_sender_login_maps = lmdb:/etc/postfix/sender_login
+smtpd_milters = unix:rspamd/milter.sock
+non_smtpd_milters = $smtpd_milters
+
+# apply filters to bounces to support DKIM signing
+internal_mail_filter_classes = bounce
 
 authorized_flush_users =
 authorized_mailq_users =
@@ -54,6 +51,8 @@ mailbox_size_limit = 0
 message_size_limit = 100000000
 
 delay_warning_time = 4h
+
+allow_percent_hack = no
 
 # DNSSEC / TLS
 
