@@ -58,6 +58,7 @@ mailbox_size_limit = 0
 message_size_limit = 100000000
 
 delay_warning_time = 4h
+enable_threaded_bounces = yes
 
 allow_percent_hack = no
 
