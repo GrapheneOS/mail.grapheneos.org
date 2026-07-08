@@ -22,6 +22,7 @@ postscreen_greet_ttl = 2d
 postscreen_greet_wait = 2s
 
 smtpd_client_event_limit_exceptions =
+smtpd_client_ipv6_prefix_length = 64
 
 smtpd_forbid_bare_newline = reject
 smtpd_forbid_bare_newline_exclusions =
