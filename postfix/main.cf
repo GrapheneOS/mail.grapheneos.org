@@ -98,3 +98,5 @@ smtpd_tls_auth_only = yes
 tls_ssl_options = NO_RENEGOTIATION
 
 smtpd_tls_received_header = yes
+smtpd_tls_loglevel = 1
+smtp_tls_loglevel = 1
