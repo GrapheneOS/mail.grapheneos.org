@@ -61,6 +61,7 @@ delay_warning_time = 4h
 enable_threaded_bounces = yes
 
 allow_percent_hack = no
+swap_bangpath = no
 
 # DNSSEC / TLS
 
