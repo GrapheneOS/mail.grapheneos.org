@@ -8,6 +8,7 @@ tlsproxy  unix  -       -       y       -       0       tlsproxy
 submissions     inet  n       -       y       -       -       smtpd
   -o syslog_name=postfix/submissions
   -o smtpd_tls_wrappermode=yes
+  -o smtpd_tls_mandatory_protocols=>=TLSv1.3
   -o smtpd_sasl_auth_enable=yes
   -o local_header_rewrite_clients=static:all
   -o smtpd_hide_client_session=yes
