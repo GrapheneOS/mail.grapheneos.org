@@ -17,6 +17,9 @@ virtual_mailbox_maps = lmdb:/etc/postfix/virtual_recipient
 virtual_alias_domains = grapheneos.app, grapheneos.ca, grapheneos.com, grapheneos.dev, grapheneos.foundation, grapheneos.info, grapheneos.net, grapheneos.network, grapheneos.online, mail.grapheneos.org, grapheneos.ovh, grapheneos.page, seamlessupdate.app, vanadium.app
 virtual_alias_maps = lmdb:/etc/postfix/virtual
 
+# required for adding X-Original-To via ltmp flags=O
+lmtp_destination_recipient_limit = 1
+
 postscreen_greet_action = enforce
 postscreen_greet_ttl = 2d
 postscreen_greet_wait = 2s

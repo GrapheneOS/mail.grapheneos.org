@@ -35,6 +35,6 @@ showq     unix  n       -       y       -       -       showq
 error     unix  -       -       y       -       -       error
 retry     unix  -       -       y       -       -       error
 discard   unix  -       -       y       -       -       discard
-lmtp      unix  -       -       y       -       -       lmtp
+lmtp      unix  -       -       y       -       -       lmtp flags=O
 anvil     unix  -       -       y       -       1       anvil
 scache    unix  -       -       y       -       1       scache
