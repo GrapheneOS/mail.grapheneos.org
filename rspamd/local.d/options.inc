@@ -1,4 +1,4 @@
-disable_pcre_jit = true
+disable_pcre_jit = true;
 
 task_timeout = 30s;
 
