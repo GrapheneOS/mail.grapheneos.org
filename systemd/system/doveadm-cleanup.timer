@@ -1,0 +1,9 @@
+[Unit]
+Description=Perform dovecot cleanup daily
+
+[Timer]
+OnCalendar=daily
+Persistent=yes
+
+[Install]
+WantedBy=timers.target

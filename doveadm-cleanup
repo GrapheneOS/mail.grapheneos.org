@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -o errexit -o nounset -o pipefail
+
+. /etc/dovecot/cleanup.sh
+
+for report_account in "${report_accounts[@]}"; do
+    doveadm expunge -u "$report_account" mailbox INBOX savedbefore 90d
+    doveadm expunge -u "$report_account" mailbox Spam savedbefore 90d
+done
+
+doveadm expunge -A mailbox Trash savedbefore 30d
