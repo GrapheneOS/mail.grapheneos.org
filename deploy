@@ -33,6 +33,7 @@ chown postfix:postfix /var/spool/postfix/dovecot &&
 chown rspamd:postfix /var/spool/postfix/rspamd'
 rsync -rL --delete rspamd/{local.d,override.d} $remote:/etc/rspamd/
 rsync -rL --delete --chown root:rspamd --chmod=D750,F640 dkim $remote:/etc/
+rsync --chmod=600 private/rspamd.env $remote:/etc/rspamd.env
 
 rsync postfix/{local_recipient,main.cf,master.cf,openssl.cnf,submission_header_checks} $remote:/etc/postfix
 rsync private/postfix/{sender_login,tls_policy,virtual,virtual_recipient} $remote:/etc/postfix
