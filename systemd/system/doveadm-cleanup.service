@@ -2,7 +2,7 @@
 Description=Perform dovecot cleanup
 
 [Service]
-CapabilityBoundingSet=CAP_SETGID CAP_SETUID CAP_SYS_CHROOT
+CapabilityBoundingSet=CAP_DAC_OVERRIDE CAP_SETGID CAP_SETUID CAP_SYS_CHROOT
 CPUSchedulingPolicy=batch
 ExecStart=/usr/local/bin/doveadm-cleanup
 IOSchedulingPriority=7
