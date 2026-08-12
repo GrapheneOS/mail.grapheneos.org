@@ -9,4 +9,9 @@ for report_account in "${report_accounts[@]}"; do
     doveadm expunge -u "$report_account" mailbox Spam savedbefore 90d
 done
 
+for noreply_account in "${noreply_accounts[@]}"; do
+    doveadm expunge -u "$noreply_account" mailbox INBOX savedbefore 30d
+    doveadm expunge -u "$noreply_account" mailbox Spam savedbefore 30d
+done
+
 doveadm expunge -A mailbox Trash savedbefore 30d
