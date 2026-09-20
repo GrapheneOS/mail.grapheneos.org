@@ -4,6 +4,7 @@
 # ==========================================================================
 smtp      inet  n       -       y       -       1       postscreen
 smtpd     pass  -       -       y       -       -       smtpd
+  -o smtpd_discard_ehlo_keywords=auth
 tlsproxy  unix  -       -       y       -       0       tlsproxy
 submissions     inet  n       -       y       -       -       smtpd
   -o syslog_name=postfix/submissions
