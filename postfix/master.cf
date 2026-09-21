@@ -15,7 +15,10 @@ submissions     inet  n       -       y       -       -       smtpd
   -o smtpd_hide_client_session=yes
   -o smtpd_client_restrictions=
   -o smtpd_helo_restrictions=reject_invalid_helo_hostname
-  -o smtpd_sender_restrictions=reject_non_fqdn_sender,reject_sender_login_mismatch
+  -o { smtpd_sender_restrictions =
+    reject_non_fqdn_sender,
+    reject_sender_login_mismatch,
+    check_sender_access inline:{ { <> = REJECT empty sender for authenticated submission } } }
   -o smtpd_relay_restrictions=permit_sasl_authenticated,reject
   -o smtpd_recipient_restrictions=reject_non_fqdn_recipient
   -o milter_macro_daemon_name=ORIGINATING
